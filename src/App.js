@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [name, setName] = useState("")
+
+
+  useEffect(() => {
+    setName("Paul")
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +22,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <span>{name}</span>
+          Learn React Now fdfd
         </a>
       </header>
     </div>
