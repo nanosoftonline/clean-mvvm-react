@@ -1,8 +1,0 @@
-// module.exports = {
-//     collectCoverage: true,
-//     resetMocks: true,
-//     testPathIgnorePatterns: ["/node_modules/"],
-//     verbose: false,
-//     moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
-//     testMatch: ["**/tests/**/*.[jt]s?(x)"]
-// };
