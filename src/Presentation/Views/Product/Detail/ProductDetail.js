@@ -3,12 +3,21 @@ import useViewModel from "./ViewModel"
 import Button from "../../../components/Button"
 import TextInput from "../../../components/TextInput"
 import { useNavigate, useParams } from "react-router-dom";
+import { GetProductUseCase } from '../../../../Domain/UseCase/Product/GetProduct'
+import { UpdateProductUseCase } from "../../../../Domain/UseCase/Product/UpdateProduct";
+import { DeleteProductUseCase } from "../../../../Domain/UseCase/Product/DeleteProduct";
+import { ProductRepository } from "../../../../Data/Repository/ProductRepository";
+import * as ProductLocalStorageDataSource from "../../../../Data/DataSource/ProductLocalStorageDataSource";
 
 
 export default function ProductDetail() {
     let navigate = useNavigate();
     let { id } = useParams();
-    const { name, price, getProduct, onChange, updateProduct, deleteProduct } = useViewModel();
+    const { name, price, getProduct, onChange, updateProduct, deleteProduct } = useViewModel({
+        GetProductUseCase: GetProductUseCase({ ProductRepository: ProductRepository({ ProductDataSource: ProductLocalStorageDataSource }) }),
+        UpdateProductUseCase: UpdateProductUseCase({ ProductRepository: ProductRepository({ ProductDataSource: ProductLocalStorageDataSource }) }),
+        DeleteProductUseCase: DeleteProductUseCase({ ProductRepository: ProductRepository({ ProductDataSource: ProductLocalStorageDataSource }) })
+    });
 
     useEffect(() => {
         getProduct(id)

@@ -1,26 +1,29 @@
-import { create, update, getAll, getOne, deleteOne } from '../DataSource/ProductLocalStorageDataSource'
+export function ProductRepository({ ProductDataSource }) {
+    return {
 
-export async function createProduct(data) {
-    const { result, error } = await create(data);
-    return { result, error }
-}
+        async createProduct(data) {
+            const { result, error } = await ProductDataSource.create(data);
+            return { result, error }
+        },
 
-export async function deleteProduct(id) {
-    const { result, error } = await deleteOne(id)
-    return { result, error }
-}
+        async deleteProduct(id) {
+            const { result, error } = await ProductDataSource.deleteOne(id)
+            return { result, error }
+        },
 
-export async function updateProduct(id, data) {
-    const { result, error } = await update(id, data)
-    return { result, error }
-}
+        async updateProduct(id, data) {
+            const { result, error } = await ProductDataSource.update(id, data)
+            return { result, error }
+        },
 
-export async function getProducts() {
-    const { result, error } = await getAll()
-    return { result, error }
-}
+        async getProducts() {
+            const { result, error } = await ProductDataSource.getAll()
+            return { result, error }
+        },
 
-export async function getProduct(id) {
-    const { result, error } = await getOne(id)
-    return { result, error }
+        async getProduct(id) {
+            const { result, error } = await ProductDataSource.getOne(id)
+            return { result, error }
+        }
+    }
 }

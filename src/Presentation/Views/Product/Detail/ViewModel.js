@@ -1,9 +1,7 @@
 import { useState } from "react"
-import { GetProductUseCase } from '../../../../Domain/UseCase/Product/GetProduct'
-import { UpdateProductUseCase } from "../../../../Domain/UseCase/Product/UpdateProduct";
-import { DeleteProductUseCase } from "../../../../Domain/UseCase/Product/DeleteProduct";
 
-export default function ProducDetailViewModel() {
+
+export default function ProducDetailViewModel({ GetProductUseCase, UpdateProductUseCase, DeleteProductUseCase }) {
 
 
     const [error, setError] = useState("")
@@ -14,8 +12,8 @@ export default function ProducDetailViewModel() {
     })
 
     async function getProduct(id) {
-        const { result, error } = await GetProductUseCase(id);
-        setError(error)
+        const { result, error } = await GetProductUseCase.execute(id);
+        setError((error && error.message) || "")
         setValues({ ...result })
     }
 
@@ -24,13 +22,13 @@ export default function ProducDetailViewModel() {
     }
 
     async function updateProduct(id) {
-        const { result, error } = await UpdateProductUseCase(id, values)
-        setError(error)
+        const { result, error } = await UpdateProductUseCase.execute(id, values)
+        setError((error && error.message) || "")
     }
 
     async function deleteProduct(id) {
-        const { result, error } = await DeleteProductUseCase(id)
-        setError(error)
+        const { result, error } = await DeleteProductUseCase.execute(id)
+        setError((error && error.message) || "")
 
     }
 

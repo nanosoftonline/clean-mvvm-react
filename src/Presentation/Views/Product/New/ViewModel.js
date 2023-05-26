@@ -1,8 +1,8 @@
 
 import { useState } from "react"
-import { CreateProductUseCase } from '../../../../Domain/UseCase/Product/CreateProduct'
 
-export default function ProductNewViewModel() {
+
+export default function ProductNewViewModel({ CreateProductUseCase }) {
     const [error, setError] = useState("")
     const [values, setValues] = useState({
         name: "",
@@ -14,7 +14,7 @@ export default function ProductNewViewModel() {
     }
 
     async function saveProduct() {
-        const { result, error } = await CreateProductUseCase(values)
+        const { result, error } = await CreateProductUseCase.execute(values)
         setError(error)
     }
 

@@ -1,13 +1,12 @@
 import { useState } from "react"
-import { GetProductsUseCase } from '../../../../Domain/UseCase/Product/GetProducts'
 
-export default function ProductListViewModel() {
+export default function ProductListViewModel({ GetProductsUseCase }) {
 
     const [error, setError] = useState("");
     const [products, setProducts] = useState([]);
 
     async function getProducts() {
-        const { result, error } = await GetProductsUseCase();
+        const { result, error } = await GetProductsUseCase.execute();
         setError(error)
         setProducts(result)
     }
