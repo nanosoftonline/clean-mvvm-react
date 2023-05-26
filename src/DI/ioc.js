@@ -5,6 +5,9 @@ import { GetProductsUseCase } from '../Domain/UseCase/Product/GetProducts';
 import { CreateProductUseCase } from '../Domain/UseCase/Product/CreateProduct';
 import { UpdateProductUseCase } from '../Domain/UseCase/Product/UpdateProduct';
 import { DeleteProductUseCase } from '../Domain/UseCase/Product/DeleteProduct';
+import ProductDetailViewModel from '../Presentation/Views/Product/Detail/ViewModel';
+import ProductListViewModel from '../Presentation/Views/Product/List/ViewModel';
+import ProductNewViewModel from '../Presentation/Views/Product/New/ViewModel';
 import * as ProductLocalStorageDataSource from '../Data/DataSource/ProductLocalStorageDataSource'
 
 const container = createContainer();
@@ -17,6 +20,9 @@ container.register({
     CreateProductUseCase: asFunction(CreateProductUseCase),
     UpdateProductUseCase: asFunction(UpdateProductUseCase),
     DeleteProductUseCase: asFunction(DeleteProductUseCase),
+    ProductDetailViewModel: asFunction(ProductDetailViewModel),
+    ProductListViewModel: asFunction(ProductListViewModel),
+    ProductNewViewModel: asFunction(ProductNewViewModel)
 
 })
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function ProducDetailViewModel({ GetProductUseCase, UpdateProductUseCase, DeleteProductUseCase }) {
+export default function ProductDetailViewModel({ GetProductUseCase, UpdateProductUseCase, DeleteProductUseCase }) {
 
 
     const [error, setError] = useState("")

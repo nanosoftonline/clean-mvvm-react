@@ -7,9 +7,7 @@ import DI from '../../../../DI/ioc'
 
 export default function ProductNew() {
     let navigate = useNavigate();
-    const { name, price, onChange, saveProduct } = useViewModel({
-        CreateProductUseCase: DI.resolve("CreateProductUseCase")
-    });
+    const { name, price, onChange, saveProduct } = DI.resolve("ProductNewViewModel")
 
 
     return (
