@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import ProductList from './Presentation/Views/Product/List/ProductList';
