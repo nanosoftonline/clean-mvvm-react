@@ -6,25 +6,11 @@ I will illustrate a Clean architecture-inspired approach to doing this.
 
 Let’s create a simple application of which one of its features is to manage a list of Products
 
-List products
-Create a product
-Delete an existing product
-Update an existing product
-To get a more visual idea of our Product management feature. Let’s use wireframing:
+1. List products
+1. Create a product
+1. Delete an existing product
+1. Update an existing product
 
-Wireframing is an important communication tool in any app project. It gives the client and developer an opportunity to walk through the structure of the application without getting distracted by design implementations.
-
-Our application will have the following User Interface Screens for Product Management:
-
-
-Wireframe for Product Management
-This allows us to delay the thinking of user interfaces until the very end and lets us concentrate on the core, testable inner workings of the interface and the logic behind it.
-
-Let’s illustrate how the views will connect to the backend of the system with the following diagram:
-
-
-Application Flow
-We’ll use React and React Hooks for this project
 
 A good starting point for this React application is to create the groupings (folders) and containers (files) of code:
 ```
