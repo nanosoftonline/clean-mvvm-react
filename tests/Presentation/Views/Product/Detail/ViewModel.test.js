@@ -89,7 +89,7 @@ describe('ProducDetailViewModel', () => {
 
     describe('updateProduct', () => {
 
-        it('should call UpdateProductUseCase and update error on updateProduct', async () => {
+        it('should call UpdateProductUseCase on updateProduct', async () => {
 
             const { result } = vm;
             //Arrange
